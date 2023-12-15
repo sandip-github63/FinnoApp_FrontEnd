@@ -1,0 +1,50 @@
+.data {
+    margin-top: 200px;
+    margin-left: 100px;
+}
+
+.data h1 {
+    font-size: 5rem;
+    font-weight: bold;
+    margin-top: 25px;
+    text-shadow: 10rem;
+    color: #6d28d9;
+    padding-top: 20px;
+}
+
+p {
+    margin-left: 100px;
+}
+
+/* styles.css */
+#background-container {
+    background-image: url("../../assets/Image/heroImage.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 35rem;
+    transition: background-image 0.8s ease-in-out ; /* Add transition for background-image */
+}
+
+#background-container:hover {
+    background-image: url("../../assets/Image/heroImage2.jpg"); /* Change to another image on hover */
+}
+
+/* Media Query for screens with a width of 768 pixels or less (typical mobile screens) */
+@media only screen and (max-width: 768px) {
+    .data {
+        margin-top: 50px; /* Adjust the margin for smaller screens */
+        padding-bottom: 0;
+        margin-left: 10px; /* Adjust the margin for smaller screens */
+        text-align: center;
+    }
+
+    .data h1 {
+        font-size: 2rem; /* Adjust the font size for smaller screens */
+        text-shadow: 2px 2px 5px #6d28d9; /* Adjust the text shadow for smaller screens */
+        margin: 0;
+    }
+
+    p {
+        margin-left: 10px; /* Adjust the margin for smaller screens */
+    }
+}
