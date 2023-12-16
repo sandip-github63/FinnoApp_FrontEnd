@@ -1,0 +1,116 @@
+.rating {
+    unicode-bidi: bidi-override;
+    
+  }
+
+  .rating > input {
+    display: none;
+  }
+
+  .rating > label {
+    position: relative;
+    display: inline-block;
+    width: 1.1em;
+    font-size: 2em;
+    color: #f8d400;
+    cursor: pointer;
+  }
+
+  .rating > label::before {
+    content: "\2605";
+    position: absolute;
+  }
+
+  .rating > label:hover:before,
+  .rating > label:hover ~ label:before,
+  .rating > input:checked ~ label:before {
+    content: "\2605";
+    color: #f8d400;
+  }
+
+  .rounded-circle-small {
+    width: 50px; /* Set the desired width */
+    height: 50px; /* Set the desired height */
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  p{
+    font-size: 16px;
+    font-family:inter,sans-serif;
+    letter-spacing: 0.5px;
+    
+  }
+
+  .pcolor-change > :first-child{
+    font-weight: bold;
+     color: black;
+
+  }
+
+  .pcolor-change > :nth-child(2){
+    
+    font-size: 12px;
+    padding-top: 0;
+    margin-top: 0;
+
+  }
+
+  .bg-color{
+    background-color: #e5e7eb;
+  }
+
+  .size{
+     font-size: 40px;
+     margin-bottom: 40px;
+  }
+
+  .heart {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    position: relative;
+    transform: rotate(-45deg);
+    margin: 20px;
+  }
+
+  .heart {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    position: relative;
+    transform: rotate(-45deg);
+    margin: 10px;
+  }
+
+  .heart::before,
+  .heart::after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+  }
+
+  .heart::before {
+    top: -15px;
+    left: 0;
+  }
+
+  .heart::after {
+    top: 0;
+    left: 15px;
+  }
+
+   /* Customize the color of the control icons */
+   .carousel-control-prev-icon,
+   .carousel-control-next-icon {
+       background-color: #3498db; /* Set your desired icon color */
+   }
+
+   /* Adjust the hover effect for the icons */
+   .carousel-control-prev:hover .carousel-control-prev-icon,
+   .carousel-control-next:hover .carousel-control-next-icon {
+       background-color: #2980b9; /* Set hover icon color */
+   }
