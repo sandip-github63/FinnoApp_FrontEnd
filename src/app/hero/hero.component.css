@@ -48,3 +48,7 @@ p {
         margin-left: 10px; /* Adjust the margin for smaller screens */
     }
 }
+
+.container-fluid{
+    background-color:  #e5e7eb;
+}

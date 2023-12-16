@@ -6,4 +6,5 @@ a{
 
 a:hover{
     background-color: aqua;
+    text-decoration: none;
 }

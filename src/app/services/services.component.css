@@ -1,0 +1,33 @@
+.inner{
+    overflow: hidden;
+}
+
+.inner img{
+    transition: all 1.5s ease;
+    height: 20rem;
+}
+
+.inner:hover img{
+    transform: scale(1.5);
+}
+
+.custom-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.custom-card:hover {
+    transform: translate(0, 10px);
+}
+
+.container-fluid{
+    background-color: #6C2BD9;
+}
+
+h1{
+    color: #F9FAFB;
+    font-size: 2rem;
+    font-weight: bold;
+
+}
