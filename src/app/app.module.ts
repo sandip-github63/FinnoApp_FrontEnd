@@ -11,6 +11,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HeroComponent } from './hero/hero.component';
 import { ServicesComponent } from './services/services.component';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
+import { ContactinfoComponent } from './contactinfo/contactinfo.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { TestimonialsComponent } from './testimonials/testimonials.component';
     NavbarComponent,
     HeroComponent,
     ServicesComponent,
-    TestimonialsComponent
+    TestimonialsComponent,
+    ContactinfoComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
