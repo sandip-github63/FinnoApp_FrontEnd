@@ -13,6 +13,8 @@ import { ServicesComponent } from './services/services.component';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { ContactinfoComponent } from './contactinfo/contactinfo.component';
 import { FooterComponent } from './footer/footer.component';
+import { AdminModule } from './admin/admin.module';
+import { VideoComponent } from './video/video.component';
 
 
 @NgModule({
@@ -25,13 +27,15 @@ import { FooterComponent } from './footer/footer.component';
     ServicesComponent,
     TestimonialsComponent,
     ContactinfoComponent,
-    FooterComponent
+    FooterComponent,
+    VideoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    AdminModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

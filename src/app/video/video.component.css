@@ -1,0 +1,74 @@
+/* your-component.component.css */
+
+/* Add any custom styles for the carousel container */
+#carouselExampleCaptionsFull {
+    
+
+  }
+  
+  /* Customize the carousel indicators */
+  .carousel-indicators button {
+    background-color: #007bff; /* Bootstrap primary color for active indicator */
+  }
+  
+  /* Customize the carousel captions */
+  .carousel-caption {
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Add other styles as needed */
+  }
+  
+  /* Customize the previous and next buttons */
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: #007bff; /* Bootstrap primary color for previous and next icons */
+    /* Add other styles as needed */
+  }
+  
+  /* Optional: Override default Bootstrap button styles */
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+  }
+  
+ /* Customize the carousel indicators */
+.carousel-indicators {
+    list-style: none;
+    padding: 0;
+    position: absolute;
+    bottom: 10px; /* Adjust the position as needed */
+    left: 0; /* Center horizontally */
+    right: 0; /* Center horizontally */
+    margin: auto; /* Center horizontally */
+    width: auto; /* Center horizontally */
+  }
+  .carousel-indicators button {
+    background-color: #fff; /* Circle background color */
+    border: 2px solid #007bff; /* Circle border color */
+    width: 12px; /* Circle width */
+    height: 12px; /* Circle height */
+    border-radius: 50%; /* Make it a circle */
+    margin: 0 6px; /* Adjust the space between circles */
+    transition: background-color 0.3s ease; /* Add a smooth transition effect */
+  }
+
+  .carousel-indicators .active {
+    background-color: #007bff; /* Active circle background color */
+  }
+
+  .carousel-item video {
+    height: 30rem; /* Set the height to 100% of the container height */
+    width: 100%; /* Set the width to 100% of the container width */
+    object-fit: cover; /* Ensure the video covers the entire container */
+  }
+
+
+  .carousel-item iframe {
+    height: 30rem; /* Set the height to 100% of the container height */
+    width: 100%; /* Set the width to 100% of the container width */
+    object-fit: cover; /* Ensure the video covers the entire container */
+  }
