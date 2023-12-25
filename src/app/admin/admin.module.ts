@@ -9,13 +9,20 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { ArticleComponent } from './article/article.component';
+import { AddArticleComponent } from './add-article/add-article.component';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
     DashboardComponent,
     SidebarComponent,
-    ArticleComponent
+    AddArticleComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -25,6 +32,14 @@ import { ArticleComponent } from './article/article.component';
     MatIconModule,
     MatListModule,
     MatToolbarModule,
+    FormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatButtonModule
+    
+     
+   
   ]
 })
 export class AdminModule { }

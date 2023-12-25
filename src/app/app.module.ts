@@ -36,6 +36,9 @@ import { VideoComponent } from './video/video.component';
     BrowserAnimationsModule,
     MatSlideToggleModule,
     AdminModule,
+    
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
