@@ -21,7 +21,7 @@ export class TokenInterceptor implements HttpInterceptor {
 
     console.log(JSON.stringify(request, null, 2));
 
-    const token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYW5kaXAiLCJpYXQiOjE3MDM2MDgxNTksImV4cCI6MTcwMzY5NDU1OX0.EkZyhemZ1MA8gGqr7S9C5ztiCoMcgLcNrz6l06-A0EY";
+    const token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYW5kaXAiLCJpYXQiOjE3MDM2OTA3NjEsImV4cCI6MTcwMzc3NzE2MX0.t6KWUa-Nk1v5y10iaPHgCZz0dOke1_q5lZPYkrLtkTQ";
 
     console.log("Interceptor token:", token);
     console.log("Interceptor called");

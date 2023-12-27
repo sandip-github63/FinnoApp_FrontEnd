@@ -2,7 +2,6 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10">
-
       <mat-card>
         <mat-card-header>
           <h3>Latest</h3>
@@ -17,7 +16,11 @@
                     <div>
                       <h3>Company :</h3>
                       <!-- Create text field -->
-                      <input type="text" class="form-control" placeholder="Enter Company">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Enter Company"
+                      />
                     </div>
                   </div>
                   <div class="col-md-4">
@@ -25,7 +28,12 @@
                       <div>
                         <h3>Date :</h3>
                         <!-- Create date picker using Bootstrap datepicker -->
-                        <input type="date" class="form-control">
+                        <input
+                          #datePicker
+                          type="date"
+                          class="form-control"
+                          (change)="datePicked(datePicker.value)"
+                        />
                       </div>
                     </div>
                   </div>
@@ -35,8 +43,16 @@
                       <div>
                         <h3>Search :</h3>
                         <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Search...">
-                          <span class="input-group-text"><i class="fas fa-search"></i></span>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Search..."
+                            #dataInput
+                            (keyup)="filterArticles(dataInput.value)"
+                          />
+                          <span class="input-group-text"
+                            ><i class="fas fa-search"></i
+                          ></span>
                         </div>
                       </div>
                     </div>
@@ -48,47 +64,73 @@
 
           <!-- Show article section -->
           <div class="container mt-5">
-            <div class="row">
+            <div class="row mb-3" *ngFor="let article of pagedArticles">
               <div class="col-sm-2">
                 <!-- Image part -->
-                <img src="../../assets/Image/customer6.jpg" class="img-fluid rounded" style="width: 100px; height: 100px;">
+                <img
+                  src="../../assets/Image/customer6.jpg"
+                  class="img-fluid rounded"
+                  style="width: 100px; height: 100px"
+                />
               </div>
 
               <div class="col-sm-10">
                 <div class="row">
                   <div class="col-md-12">
-                    <a href="#"> 
-                          <!-- Article content -->
-                          Java is the World most popular programming language I have ever seen....
-                          why only java  i dont know why only java but yes it is lore
+                    <a href="#">
+                      <!--article title-->
+                      <div [innerHTML]="article.title"></div>
                     </a>
                   </div>
 
-                  <div class="col-md-12 mt-2" style="padding-top: 2%; position:relative;">
+                  <div
+                    class="col-md-12"
+                    style="padding-top: 2%; position: relative"
+                  >
                     <!-- Article date -->
-                    Tuesday, Dec, 2023
+                    {{ article.publicationDate }}
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-          
         </div>
-
 
         <!--pagingation section-->
         <div class="container mt-5">
-             <div class="row">
-                <div class="col">                  
-                 <mat-paginator  [pageSize]="pageSize" [pageSizeOptions]="pageSizeOp" (page)="onPageChange($event)">
-                 </mat-paginator>                   
-                </div>
-             </div>
+          <div class="row">
+            <div class="col">
+              <mat-paginator
+                [pageSize]="pageSize"
+                [length]="articles.data.length"
+                [pageSizeOptions]="pageSizeOp"
+                (page)="onPageChange($event)"
+              >
+              </mat-paginator>
+            </div>
+          </div>
         </div>
 
+        <!--error message for no article found-->
+        <div class="container" *ngIf="showError">
+          <div class="row">
+            <div class="col text-center">
+              <div class="alert alert-danger" role="alert">
+                <h4 class="alert-heading">No Such Article Found</h4>
+                <p>
+                  We couldn't find the article you're looking for. Please check
+                  your search criteria or try again later.
+                </p>
+                <hr />
+                <p class="mb-0">
+                  If you believe this is an error, please contact our support
+                  team.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </mat-card>
- 
     </div>
   </div>
 </div>

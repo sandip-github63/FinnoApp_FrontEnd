@@ -166,8 +166,53 @@
                         </div>
                     </div>
 
+                   <mat-divider></mat-divider>
+
+                    <div class="row">
+                        <div class="col">
+                            <div>
+                                <ul>
+                                    <li><a btn style="font-size: 20px;" href=""><i class="fas fa-thumbs-up" style="font-size: 20px;"></i>Like</a></li>
+                                    <li><a style="font-size: 20px;" href=""><i class="fas fa-share" style="font-size: 20px;"></i> Share</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <mat-divider></mat-divider>
+
+                    <mat-card-footer>
+                        <div class="container mt-2">
+                          <div class="row">
+                            <div class="col-lg-1 mt-1 col-sm-2">
+                              <figure>
+                                <img src="../../assets/Image/blankProfile.webp" style="height: 60px; width: 52px;" alt="">
+                              </figure>
+                            </div>
+                            <div class="col-lg-10 col-md-10 col-sm-9">
+                              <div class="row">
+                      
+                               <textarea class="form-control" id="comment" rows="2" placeholder="Type your comment here..."></textarea>
+                      
+                              </div>
+                              <div class="row mt-1">
+                      
+                                <!-- Use Angular's *ngIf to conditionally apply the fxFlex directive -->
+                                <button mat-raised-button color="primary" fxFlex.gt-md="50%">Comment</button>
+                      
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </mat-card-footer>
+                      
+
+
                 </div>
             </mat-card>
+
+            
         </div>
     </div>
 </div>

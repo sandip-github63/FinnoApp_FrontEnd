@@ -16,4 +16,13 @@ export class ArticleService {
   }
 
 
+  public getAllArticles(){
+
+    return this.http.get(`${endPoint}/api/article/get/all-articles`);
+
+  }
+
+
+
+
 }
