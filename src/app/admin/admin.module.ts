@@ -16,6 +16,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import { CKEditorModule } from 'ckeditor4-angular';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { CKEditorModule } from 'ckeditor4-angular';
     MatFormFieldModule,
     MatCardModule,
     MatButtonModule,
-    CKEditorModule
+    CKEditorModule,
+    MatSnackBarModule,
     
      
    

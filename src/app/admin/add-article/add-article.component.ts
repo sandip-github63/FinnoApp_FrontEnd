@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService } from 'src/app/services/article.service';
+import Swal from 'sweetalert2';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-article',
@@ -8,58 +10,98 @@ import { ArticleService } from 'src/app/services/article.service';
 })
 export class AddArticleComponent implements OnInit {
 
-  selectedFile: File | null = null;  
+  selectedFile: File | null = null;
+  selectedFileName: string | null = null;
 
   formData = {
     title: '',
     content: '',
-    userId:'102'
+    userId: '102'
   };
 
-  constructor(private _article:ArticleService) { }
+  constructor(private _article: ArticleService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
 
-  onFormSubmit() {
-   
-    if (this.selectedFile) {
-      // File is selected, handle the form submission with the file
-     
+  async onFormSubmit() {
+    if (!this.validationCondition(this.formData.title)) {
+      return;
+    }
 
-      console.log("before Form Data "+this.formData)
+    if (!this.validationCondition(this.formData.content)) {
+      return;
+    }
 
+    const result = await Swal.fire({
+      title: 'Confirm Submission',
+      text: 'Are you sure you want to submit the form?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No',
+    });
+
+    if (result.isConfirmed) {
       const formData = new FormData();
       formData.append('title', this.formData.title);
       formData.append('content', this.formData.content);
-      formData.append('image', this.selectedFile);
+
+      // Append the image file if it's selected
+      if (this.selectedFile) {
+        formData.append('image', this.selectedFile);
+      }
+
       formData.append('userId', this.formData.userId);
 
-      console.log("After Form Data "+JSON.stringify(this.formData))
-
       this._article.addArticle(formData).subscribe(
-         (data)=>{
-
-            alert("success")
-         },
-         (error)=>{
-             alert("something went wrong")
-             console.log(error)
-         }
+        (data) => {
+          Swal.fire('Success', 'Form submitted successfully', 'success');
+          this.resetFormData();
+        },
+        (error) => {
+          Swal.fire('Error', 'Something went wrong', 'error');
+          console.log(error);
+        }
       );
-
-     
     } else {
-      // No file selected, handle the form submission without the file
-      console.log('Form submitted without a file:', this.formData);
-
-      }
-    
+      Swal.fire('Cancelled', 'Form submission cancelled', 'info');
+    }
   }
 
   onFileSelected(event: any) {
-    
     this.selectedFile = event.target.files[0];
+    // Update selectedFileName with the file name
+  if (this.selectedFile) {
+    this.selectedFileName = this.selectedFile.name;
+  } else {
+    this.selectedFileName = null;
   }
+  }
+
+  public validationCondition(data: any): boolean {
+    return (data.trim() === '' || data == null) ? false : true;
+  }
+
+  openSnackBar(message: any) {
+    this._snackBar.open(message, 'Close', {
+      duration: 1000, // Duration in milliseconds
+    });
+  }
+
+  // Add a method to reset form data
+resetFormData() {
+  this.formData = {
+    title: '',
+    content: '',
+    userId: '102'
+  };
+  this.resetFile();
+}
+
+resetFile() {
+  this.selectedFile = null;
+  this.selectedFileName = null;
+}
 
 }

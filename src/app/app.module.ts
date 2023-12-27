@@ -17,6 +17,13 @@ import { VideoComponent } from './video/video.component';
 import { CompanyComponent } from './company/company.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from './services/token.interceptor';
+import { DisplayArticlesComponent } from './articles/display-articles/display-articles.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import { LatestComponent } from './articles/latest/latest.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { ViewArticleComponent } from './articles/view-article/view-article.component';
 
 
 @NgModule({
@@ -30,7 +37,11 @@ import { TokenInterceptor } from './services/token.interceptor';
     ContactinfoComponent,
     FooterComponent,
     VideoComponent,
-    CompanyComponent
+    CompanyComponent,
+    DisplayArticlesComponent,
+    LatestComponent,
+    ViewArticleComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -38,7 +49,12 @@ import { TokenInterceptor } from './services/token.interceptor';
     BrowserAnimationsModule,
     MatSlideToggleModule,
     AdminModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule,
+    MatButtonModule,
+    MatDividerModule,
+    MatPaginatorModule
+    
     
 
 

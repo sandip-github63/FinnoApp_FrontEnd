@@ -1,0 +1,22 @@
+p {
+    font-size: 14px;
+    text-shadow: 0 0 0 #585858;
+    line-height: 26px;
+}
+
+a{
+    text-decoration: none;
+    font-size: 8px;
+    display: inline-block;
+
+
+}
+
+ul li{
+    display: inline-block;
+}
+
+a i{
+    font-size: 30px;
+    padding: 10px;
+}

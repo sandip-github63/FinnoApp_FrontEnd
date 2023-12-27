@@ -1,0 +1,70 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mat-card-content {
+    padding: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+li {
+    flex: 0 0 100%; /* Each li takes full width */
+    margin-bottom: 10px;
+    display: flex; /* Make li a flex container */
+    align-items: center; /* Align items vertically in the center */
+}
+
+i {
+    margin-right: 10px; /* Adjust the spacing between icon and text */
+    color: #007bff; /* Change the color as needed */
+}
+
+a {
+    color: #373737;
+    font-weight: 600;
+    font-size: 13px;
+    text-decoration: none;  
+}
+
+p {
+    margin: 0;
+}
+
+/* Optional: Add hover effect for better user experience */
+a:hover {
+    color: rgb(249 115 22);
+    border-radius: 5px;
+}
+
+.rounded-arrow {
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.267); /* Optional background color */
+    padding: 8px; /* Optional padding for spacing */
+}
+
+.w-small{
+
+    padding: 1px 5px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+    margin-left: auto;
+    background-color: #f88222!important;
+    border: 1px solid #f88222!important;
+    color: #fff;
+
+}
+
+button.w-small {
+    margin-left: 50%; /* Adjust the margin as needed */
+    margin-top: 0px;
+    padding-top: 0px;
+}
