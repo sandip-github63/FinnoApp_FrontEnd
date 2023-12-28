@@ -3,26 +3,24 @@ import { Injectable } from '@angular/core';
 import endPoint from './helper';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ArticleService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http:HttpClient) { }
-
-  public addArticle(formdata:FormData){
-
-    return this.http.post(`${endPoint}/api/article/create`,formdata);
-
+  public addArticle(formdata: FormData) {
+    return this.http.post(`${endPoint}/api/article/create`, formdata);
   }
 
-
-  public getAllArticles(){
-
+  public getAllArticles() {
     return this.http.get(`${endPoint}/api/article/get/all-articles`);
-
   }
 
+  public getArticle(articleId: any) {
+    return this.http.get(`${endPoint}/api/article/get/${articleId}`);
+  }
 
-
-
+  public getLatestArticles() {
+    return this.http.get(`${endPoint}/api/article/get/latest-articles`);
+  }
 }

@@ -68,7 +68,7 @@
               <div class="col-sm-2">
                 <!-- Image part -->
                 <img
-                  src="../../assets/Image/customer6.jpg"
+                  [src]="serverImage(article.imageNames[0])"
                   class="img-fluid rounded"
                   style="width: 100px; height: 100px"
                 />
@@ -77,7 +77,7 @@
               <div class="col-sm-10">
                 <div class="row">
                   <div class="col-md-12">
-                    <a href="#">
+                    <a [routerLink]="'/view-article/' + article.articleId">
                       <!--article title-->
                       <div [innerHTML]="article.title"></div>
                     </a>
@@ -85,10 +85,15 @@
 
                   <div
                     class="col-md-12"
-                    style="padding-top: 2%; position: relative"
+                    style="
+                      padding-top: 2%;
+                      position: relative;
+                      font-size: 13px;
+                      color: #dc2626;
+                    "
                   >
                     <!-- Article date -->
-                    {{ article.publicationDate }}
+                    {{ article.publicationDate | date : "EEEE, MMMM d, y" }}
                   </div>
                 </div>
               </div>

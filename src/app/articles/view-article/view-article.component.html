@@ -1,218 +1,208 @@
 <div class="container mt-5 mb-5">
-    <div class="row">
-        <div class="col">
-            <mat-card>
-                <div class="container mt-5 mb-5">
-                    <div class="row">
-                        <div class="col">
-                            <h1 style="font: 30px open sans,sans-serif; color: #333333;">
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, nam!
-                            </h1>
-                        </div>
-                    </div>
+  <div class="row">
+    <div class="col">
+      <mat-card>
+        <div class="container mt-5 mb-5">
+          <div class="row">
+            <div class="col">
+              <h1
+                style="font: 30px open sans, sans-serif; color: #333333"
+                [innerHTML]="article.data.title"
+              ></h1>
+            </div>
+          </div>
 
-                    <mat-card-header>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <!-- Calendar and date show -->
-                                <h3> <i class="far fa-calendar icon"></i> Tue, Dec 26, 2023 2:05 PM </h3>
-                            </div>
+          <mat-card-header>
+            <div class="row">
+              <div class="col-md-12">
+                <!-- Calendar and date show -->
+                <h3>
+                  <i class="far fa-calendar icon"></i>
+                  {{ article.data.publicationDate | date : "EEEE, MMMM d, y" }}
+                </h3>
+              </div>
 
-                            <div class="col-md-12 pt-2">
-                                <!-- Icons inline -->
-                                <a href="https://www.youtube.com/" target="_blank" class="text-danger pr-3">
-                                    <i class="fab fa-youtube fa-lg"></i>
-                                </a>
-                                <a href="https://www.facebook.com/" target="_blank" class="text-primary pr-3">
-                                    <i class="fab fa-facebook fa-lg"></i>
-                                </a>
-                                <a href="https://github.com/" target="_blank" class="text-dark pr-3">
-                                    <i class="fab fa-github fa-lg"></i>
-                                </a>
-                                <a href="https://www.linkedin.com/" target="_blank" class="text-info">
-                                    <i class="fab fa-linkedin fa-lg"></i>
-                                </a>
-                                <a href="https://www.linkedin.com/" target="_blank" class="text-secondary">
-                                    <i class="fab fa-facebook-messenger icon"></i>
-                                </a>
+              <div class="col-md-12 pt-2">
+                <!-- Icons inline -->
+                <a
+                  href="https://www.youtube.com/"
+                  target="_blank"
+                  class="text-danger pr-3"
+                >
+                  <i class="fab fa-youtube fa-lg"></i>
+                </a>
+                <a
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  class="text-primary pr-3"
+                >
+                  <i class="fab fa-facebook fa-lg"></i>
+                </a>
+                <a
+                  href="https://github.com/"
+                  target="_blank"
+                  class="text-dark pr-3"
+                >
+                  <i class="fab fa-github fa-lg"></i>
+                </a>
+                <a
+                  href="https://www.linkedin.com/"
+                  target="_blank"
+                  class="text-info"
+                >
+                  <i class="fab fa-linkedin fa-lg"></i>
+                </a>
+                <a
+                  href="https://www.linkedin.com/"
+                  target="_blank"
+                  class="text-secondary"
+                >
+                  <i class="fab fa-facebook-messenger icon"></i>
+                </a>
 
-                                <a href="https://twitter.com/" target="_blank" class="text-info">
-                                    <i class="fab fa-twitter icon"></i>
-                                  </a>
+                <a
+                  href="https://twitter.com/"
+                  target="_blank"
+                  class="text-info"
+                >
+                  <i class="fab fa-twitter icon"></i>
+                </a>
+              </div>
+            </div>
+          </mat-card-header>
 
-                                
-                            </div>
-                        </div>
-                    </mat-card-header>
+          <mat-divider></mat-divider>
 
-                    <mat-divider></mat-divider>
+          <mat-card-content>
+            <div class="row pt-3">
+              <div class="col-md-12">
+                <figure style="float: right">
+                  <img
+                    [src]="serverImage(article.data.imageNames[0])"
+                    style="width: 380px; height: 286px; margin: 0 0 10px 10px"
+                    alt=""
+                  />
+                </figure>
 
-                    <mat-card-content>
-                        <div class="row pt-3">
-                            <div class="col-md-12">
-                                <figure style="float: right;">
-                                    <img src="../../assets/Image/customer6.jpg"
-                                        style="width: 380px; height: 286px; margin: 0 0 10px 10px;" alt="">
-                                </figure>
-
-                                <div>
-                                    <p style="text-align:justify; color: #333333;">
-                                        Exploring the Power and Versatility of C++
-
-                                        Introduction:
-                                        
-                                        C++ stands as a stalwart in the world of programming languages, celebrated for its power, versatility, and efficiency. Created by Bjarne Stroustrup in the late 1970s as an extension of the C programming language, C++ has evolved over the decades to become a cornerstone in software development. This article delves into the intricacies of C++, examining its key features, historical evolution, applications, and its enduring relevance in the ever-changing landscape of technology.
-                                        
-                                        Historical Evolution:
-                                        
-                                        To understand C++ fully, it's crucial to trace its historical roots. Bjarne Stroustrup, a Danish computer scientist, developed C++ at Bell Labs in Murray Hill, New Jersey, in the early 1980s. Stroustrup's motivation was to enhance the C programming language by introducing object-oriented programming (OOP) features. The first version of C++ was released in 1985, and its name reflects its lineage—the '++' denotes an increment in programming parlance, signifying an enhancement over C.
-                                        
-                                        Key Features:
-                                        
-                                        Object-Oriented Paradigm:
-                                        C++ introduced the paradigm of object-oriented programming, which organizes code into objects—encapsulated units that contain both data and the methods that operate on the data. This approach promotes code modularity, reusability, and maintainability.
-                                        
-                                        Efficiency and Performance:
-                                        C++ maintains a reputation for being a high-performance language. It provides low-level memory manipulation, enabling developers to control the memory allocation and deallocation process. This fine-grained control over memory contributes to efficient execution and optimal resource utilization.
-                                        
-                                        Standard Template Library (STL):
-                                        The STL is a powerful collection of template classes and functions that provide general-purpose data structures and algorithms. It includes containers like vectors, lists, and queues, as well as algorithms for sorting, searching, and manipulating these containers. The STL enhances code productivity and readability.
-                                        
-                                        Multi-Paradigm Language:
-                                        C++ supports multiple programming paradigms, including procedural, object-oriented, and generic programming. This flexibility allows developers to choose the paradigm that best suits the requirements of their projects.
-                                        
-                                        Portability:
-                                        C++ code can be compiled and executed on different platforms, making it a highly portable language. This portability is facilitated by the availability of compilers for various operating systems, ensuring that C++ applications can run seamlessly across different environments.
-                                        
-                                        Standardization:
-                                        The International Organization for Standardization (ISO) has played a crucial role in standardizing C++. The ISO C++ standards, with major updates released over the years, provide a stable and well-defined foundation for C++ development. The standardization ensures consistency and compatibility across different compilers and environments.
-                                        
-                                        Applications:
-                                        
-                                        C++ has found its way into a myriad of applications across diverse domains. Its combination of performance and versatility makes it suitable for a wide range of software development projects. Here are some notable areas where C++ excels:
-                                        
-                                        System Software:
-                                        Operating systems, device drivers, and embedded systems often rely on C++ due to its low-level memory manipulation capabilities and efficiency. The ability to interact closely with hardware makes C++ a natural choice for system-level programming.
-                                        
-                                        Game Development:
-                                        The gaming industry heavily utilizes C++ for developing game engines and high-performance graphics. The efficiency of C++ allows developers to create resource-intensive and visually stunning games.
-                                        
-                                        Desktop Applications:
-                                        C++ is commonly employed in the development of desktop applications, particularly those that require a high degree of performance and responsiveness. Software like Adobe Photoshop and Microsoft Office has components written in C++.
-                                        
-                                        Databases:
-                                        C++ is used in the development of database management systems (DBMS) and database engines. Its efficiency in handling large volumes of data and the ability to optimize code for specific hardware contribute to its prevalence in this domain.
-                                        
-                                        Real-time Systems:
-                                        C++ is favored in the development of real-time systems, such as those used in aerospace, automotive control systems, and telecommunications. Its deterministic behavior and low-latency capabilities are crucial in these applications.
-                                        
-                                        Networking:
-                                        Networking applications, including routers, switches, and protocols, often leverage C++ for its efficiency in handling data streams and low-level network operations.
-                                        
-                                        Financial Software:
-                                        The finance industry benefits from C++ in the development of algorithmic trading systems, risk management tools, and other financial applications that demand high performance and reliability.
-                                        
-                                        Enduring Relevance:
-                                        
-                                        Despite the emergence of new programming languages and paradigms, C++ continues to maintain its relevance in the software development landscape. Several factors contribute to its enduring popularity:
-                                        
-                                        Legacy Codebase:
-                                        Many large-scale projects and systems have been developed in C++ over the years. The presence of a vast legacy codebase ensures that there is an ongoing need for developers proficient in C++ to maintain and enhance existing systems.
-                                        
-                                        Performance Requirements:
-                                        In scenarios where performance is a critical factor, such as system programming, game development, and high-frequency trading, C++ remains a top choice due to its low-level memory control and efficient execution.
-                                        
-                                        Versatility:
-                                        The ability to support multiple programming paradigms and cater to diverse application domains makes C++ a versatile language. Developers can choose the most suitable paradigm for a particular project without being constrained by language limitations.
-                                        
-                                        Community and Ecosystem:
-                                        C++ has a robust and active community of developers. The availability of libraries, frameworks, and tools contributes to a rich ecosystem that facilitates development and accelerates the implementation of various projects.
-                                        
-                                        Conclusion:
-                                        
-                                        In the ever-evolving landscape of programming languages, C++ stands as a stalwart that has weathered the test of time. Its enduring relevance is a testament to its power, versatility, and efficiency. As technology continues to advance, C++ adapts and remains a cornerstone in the creation of software that powers our digital world. Whether in system programming, game development, or real-time applications, C++ continues to play a pivotal role, shaping the digital experiences we encounter daily.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </mat-card-content>
-
-                    <mat-divider></mat-divider>
-
-                    <div class="row">
-                        <div class="col offset-lg-8 offset-sm-6 pt-2">
-                            <!-- Icons inline -->
-                            <a href="https://www.youtube.com/" target="_blank" class="text-danger pr-3">
-                                <i class="fab fa-youtube fa-lg"></i>
-                            </a>
-                            <a href="https://www.facebook.com/" target="_blank" class="text-primary pr-3">
-                                <i class="fab fa-facebook fa-lg"></i>
-                            </a>
-                            <a href="https://github.com/" target="_blank" class="text-dark pr-3">
-                                <i class="fab fa-github fa-lg"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/" target="_blank" class="text-info">
-                                <i class="fab fa-linkedin fa-lg"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/" target="_blank" class="text-secondary">
-                                <i class="fab fa-facebook-messenger icon"></i>
-                            </a>
-
-                            <a href="https://twitter.com/" target="_blank" class="text-info">
-                                <i class="fab fa-twitter icon"></i>
-                              </a>
-
-                            
-                        </div>
-                    </div>
-
-                   <mat-divider></mat-divider>
-
-                    <div class="row">
-                        <div class="col">
-                            <div>
-                                <ul>
-                                    <li><a btn style="font-size: 20px;" href=""><i class="fas fa-thumbs-up" style="font-size: 20px;"></i>Like</a></li>
-                                    <li><a style="font-size: 20px;" href=""><i class="fas fa-share" style="font-size: 20px;"></i> Share</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <mat-divider></mat-divider>
-
-                    <mat-card-footer>
-                        <div class="container mt-2">
-                          <div class="row">
-                            <div class="col-lg-1 mt-1 col-sm-2">
-                              <figure>
-                                <img src="../../assets/Image/blankProfile.webp" style="height: 60px; width: 52px;" alt="">
-                              </figure>
-                            </div>
-                            <div class="col-lg-10 col-md-10 col-sm-9">
-                              <div class="row">
-                      
-                               <textarea class="form-control" id="comment" rows="2" placeholder="Type your comment here..."></textarea>
-                      
-                              </div>
-                              <div class="row mt-1">
-                      
-                                <!-- Use Angular's *ngIf to conditionally apply the fxFlex directive -->
-                                <button mat-raised-button color="primary" fxFlex.gt-md="50%">Comment</button>
-                      
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </mat-card-footer>
-                      
-
-
+                <div>
+                  <p
+                    style="text-align: justify; color: #333333"
+                    [innerHTML]="article.data.content"
+                  ></p>
                 </div>
-            </mat-card>
+              </div>
+            </div>
+          </mat-card-content>
 
-            
+          <mat-divider></mat-divider>
+
+          <div class="row">
+            <div class="col offset-lg-8 offset-sm-6 pt-2">
+              <!-- Icons inline -->
+              <a
+                href="https://www.youtube.com/"
+                target="_blank"
+                class="text-danger pr-3"
+              >
+                <i class="fab fa-youtube fa-lg"></i>
+              </a>
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                class="text-primary pr-3"
+              >
+                <i class="fab fa-facebook fa-lg"></i>
+              </a>
+              <a
+                href="https://github.com/"
+                target="_blank"
+                class="text-dark pr-3"
+              >
+                <i class="fab fa-github fa-lg"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/"
+                target="_blank"
+                class="text-info"
+              >
+                <i class="fab fa-linkedin fa-lg"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/"
+                target="_blank"
+                class="text-secondary"
+              >
+                <i class="fab fa-facebook-messenger icon"></i>
+              </a>
+
+              <a href="https://twitter.com/" target="_blank" class="text-info">
+                <i class="fab fa-twitter icon"></i>
+              </a>
+            </div>
+          </div>
+
+          <mat-divider></mat-divider>
+
+          <div class="row">
+            <div class="col">
+              <div>
+                <ul>
+                  <li>
+                    <a btn style="font-size: 20px" href=""
+                      ><i class="fas fa-thumbs-up" style="font-size: 20px"></i
+                      >Like</a
+                    >
+                  </li>
+                  <li>
+                    <a style="font-size: 20px" href=""
+                      ><i class="fas fa-share" style="font-size: 20px"></i>
+                      Share</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <mat-divider></mat-divider>
+
+          <mat-card-footer>
+            <div class="container mt-2">
+              <div class="row">
+                <div class="col-lg-1 mt-1 col-sm-2">
+                  <figure>
+                    <img
+                      src="../../assets/Image/blankProfile.webp"
+                      style="height: 60px; width: 52px"
+                      alt=""
+                    />
+                  </figure>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-9">
+                  <div class="row">
+                    <textarea
+                      class="form-control"
+                      id="comment"
+                      rows="2"
+                      placeholder="Type your comment here..."
+                    ></textarea>
+                  </div>
+                  <div class="row mt-1">
+                    <!-- Use Angular's *ngIf to conditionally apply the fxFlex directive -->
+                    <button
+                      mat-raised-button
+                      color="primary"
+                      fxFlex.gt-md="50%"
+                    >
+                      Comment
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-card-footer>
         </div>
+      </mat-card>
     </div>
+  </div>
 </div>

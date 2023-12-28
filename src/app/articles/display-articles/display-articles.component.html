@@ -1,113 +1,33 @@
 <div class="container mt-3">
-    <div class="row">
-        <div class="col-md-7">
+  <div class="row">
+    <div class="col-md-7">
+      <mat-card>
+        <mat-card-content>
+          <ul>
+            <li *ngFor="let article of articles.data">
+              <i class="fas fa-arrow-right"></i>
+              <a [routerLink]="'/view-article/' + article.articleId">
+                <p [innerHTML]="article.title"></p>
+                <mat-divider></mat-divider>
+              </a>
+            </li>
+          </ul>
 
-           <mat-card>
-            
-              <mat-card-content>
-
-                <ul>
-                    <li>
-                      <i class="fas fa-arrow-right"></i>
-                      <a href="">
-                        <p>What is Java programming language?</p>
-                        <mat-divider></mat-divider>
-                      </a>                      
-                    </li>
-
-                    <li>
-                        <i class="fas fa-arrow-right"></i>
-                        <a href="">
-                          <p>What is Java programming language?</p>
-                          <mat-divider></mat-divider>
-                        </a>                      
-                      </li>
-
-                      <li>
-                        <i class="fas fa-arrow-right"></i>
-                        <a href="">
-                          <p>What is Java programming language?</p>
-                          <mat-divider></mat-divider>
-                        </a>                      
-                      </li>
-
-                      <li>
-                        <i class="fas fa-arrow-right"></i>
-                        <a href="">
-                          <p>What is Java programming language?</p>
-                          <mat-divider></mat-divider>
-                        </a>                      
-                      </li>
-
-                      <li>
-                        <i class="fas fa-arrow-right"></i>
-                        <a href="">
-                          <p>What is Java programming language?</p>
-                          <mat-divider></mat-divider>
-                        </a>                      
-                      </li>
-
-                      <li>
-                        <i class="fas fa-arrow-right"></i>
-                        <a href="">
-                          <p>What is Java programming language?</p>
-                          <mat-divider></mat-divider>
-                        </a>                      
-                      </li>
-
-                      <li>
-                        <i class="fas fa-arrow-right"></i>
-                        <a href="">
-                          <p>What is Java programming language?</p>
-                          <mat-divider></mat-divider>
-                        </a>                      
-                      </li>
-
-                      <li>
-                        <i class="fas fa-arrow-right"></i>
-                        <a href="">
-                          <p>What is Java programming language?</p>
-                          <mat-divider></mat-divider>
-                        </a>                      
-                      </li>
-
-                      <li>
-                        <i class="fas fa-arrow-right"></i>
-                        <a href="">
-                          <p>What is Java programming language?</p>
-                          <mat-divider></mat-divider>
-                        </a>                      
-                      </li>
-
-                      <li>
-                        <i class="fas fa-arrow-right"></i>
-                        <a href="">
-                          <p>What is Java programming language?</p>
-                          <mat-divider></mat-divider>
-                        </a>                      
-                      </li>
-
-
-                  </ul>
-                  
-                  
-               <mat-card-footer>
-                <button mat-raised-button color="accent" type="submit" class="w-small">View More</button>
-        
-              </mat-card-footer>
-                  
-              </mat-card-content>
-
-            
-
-           </mat-card>
-             
-        </div>
-
-        <div class="col-md-3 offset-1">
-
-            data
-             
-        </div>
+          <mat-card-footer>
+            <button
+              mat-raised-button
+              color="accent"
+              type="submit"
+              class="w-small"
+              [routerLink]="'/latest-article'"
+            >
+              View More
+            </button>
+          </mat-card-footer>
+        </mat-card-content>
+      </mat-card>
     </div>
+
+    <div class="col-md-3 offset-1">data</div>
+  </div>
 </div>

@@ -1,14 +1,22 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ArticleService } from 'src/app/services/article.service';
+import endPoint from 'src/app/services/helper';
 
 @Component({
   selector: 'app-latest',
   templateUrl: './latest.component.html',
   styleUrls: ['./latest.component.css'],
+  providers: [DatePipe],
 })
 export class LatestComponent implements OnInit {
   articles: any | null = [];
+
+  //image location
+
+  imageLocation: String = '/api/serve/images/';
 
   //Date Show Error message
 
@@ -27,7 +35,10 @@ export class LatestComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator | any;
 
-  constructor(private _article: ArticleService) {}
+  constructor(
+    private _article: ArticleService,
+    private sanitizer: DomSanitizer
+  ) {}
 
   ngOnInit(): void {
     this._article.getAllArticles().subscribe(
@@ -84,5 +95,9 @@ export class LatestComponent implements OnInit {
 
     // Set this.showError based on whether there are matching articles
     this.showError = this.filterArticle.data.length === 0;
+  }
+
+  public serverImage(imageName: string): string {
+    return `${endPoint}${this.imageLocation}${imageName}`;
   }
 }
