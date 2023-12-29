@@ -1,0 +1,113 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <!-- card.component.html -->
+
+      <mat-card>
+        <mat-card-header>
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <figure>
+                  <img
+                    src="../../assets/Image/blankProfile.webp"
+                    class="card-img-top"
+                    alt="Card Image"
+                    style="
+                      height: 30px;
+                      width: 30px;
+                      border: 1px solid black;
+                      border-radius: 50%;
+                    "
+                  />
+                </figure>
+              </div>
+              <div
+                class="col d-flex justify-content-end align-items-center"
+                (click)="showDropDownItem($event)"
+              >
+                <i class="fa-solid fa-ellipsis-vertical threedot"></i>
+              </div>
+            </div>
+          </div>
+        </mat-card-header>
+
+        <mat-divider></mat-divider>
+
+        <mat-card-content>
+          <h5 class="card-title">Card Title</h5>
+          <p class="card-text" [innerHTML]="truncatedContent"></p>
+          <a *ngIf="showSeeMore" (click)="toggleContent()" class="card-link"
+            >See More</a
+          >
+        </mat-card-content>
+
+        <mat-divider> </mat-divider>
+
+        <mat-card-footer>
+          <!--show date further -->
+
+          <mat-divider> </mat-divider>
+
+          <div class="container mt-2">
+            <div class="custom-container">
+              <!-- Like Button -->
+              <div class="mt-2 pt-2 pb-2 d-inline">
+                <i
+                  class="fas fa-thumbs-up"
+                  style="font-size: 20px; color: blue"
+                ></i>
+                <span>100</span>
+              </div>
+
+              <!-- Dislike Button -->
+              <div class="mt-2 pt-2 pb-2 d-inline">
+                <i
+                  class="fas fa-thumbs-down"
+                  style="font-size: 20px; color: blue"
+                ></i>
+                <span>100</span>
+              </div>
+            </div>
+          </div>
+        </mat-card-footer>
+
+        <!--drop down item started-->
+
+        <div class="container dropdown-item" *ngIf="dropDownItem">
+          <div class="row">
+            <div class="col text-center">
+              <mat-card style="width: 20rem" id="myCard">
+                <ul>
+                  <div>
+                    <li>
+                      <i class="fa fa-trash pt-2 text-danger"></i
+                      ><a href="#" class="pb-1">Delete</a>
+                    </li>
+                    <mat-divider></mat-divider>
+                  </div>
+                  <div>
+                    <li>
+                      <i class="fa fa-pencil mt-2 text-primary"></i
+                      ><a href="#" class="pb-1">Update</a>
+                    </li>
+                    <mat-divider></mat-divider>
+                  </div>
+                  <div>
+                    <li>
+                      <i class="fa fa-eye mt-2 text-secondary pb-1"></i
+                      ><a href="#" class="pb-1">View</a>
+                    </li>
+                  </div>
+                </ul>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+
+        <!--drop down item ended-->
+      </mat-card>
+    </div>
+  </div>
+</div>
+<!-- app.component.html -->

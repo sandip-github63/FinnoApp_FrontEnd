@@ -1,0 +1,73 @@
+/* card.component.css */
+
+button {
+  display: inline-block;
+  width: 100px;
+  line-height: 20px;
+  margin: 10px;
+  padding: 1px 1px;
+  background-color: #f88222 !important;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.card-img-top {
+  /* Add any styling for the image */
+  max-width: 100%;
+  height: auto;
+}
+
+.threedot {
+  /* Add any styling for the ellipsis icon */
+  font-size: 30px; /* Adjust the size as needed */
+  color: #333; /* Adjust the color as needed */
+}
+/* Add these styles to your CSS file */
+
+/* app.component.css */
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  margin-top: 20px;
+  display: flex; /* Align icon and text in a row */
+  align-items: center; /* Vertically center the icon and text */
+}
+
+ul li a {
+  font-size: 15px;
+  padding-top: 10px;
+  margin-top: 5px;
+  text-decoration: none;
+  color: #333333;
+  font-weight: 100;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+ul li i {
+  margin-right: 10px; /* Adjust the spacing between icon and text */
+  padding-left: 20px;
+}
+
+ul li:hover {
+  background-color: rgb(229 229 229);
+}
+
+/* Add this style to your component's CSS file or style section */
+
+.dropdown-item {
+  position: absolute;
+  z-index: 1000; /* Adjust the z-index as needed to ensure it appears above other elements */
+  /* Additional styling as needed */
+  top: 50px; /* Adjust the top position */
+  left: 150px; /* Adjust the left position */
+}
