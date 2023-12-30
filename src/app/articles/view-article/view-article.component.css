@@ -1,41 +1,54 @@
-p {
-    font-size: 14px;
-    text-shadow: 0 0 0 #585858;
-    line-height: 26px;
+/* Additional Styles with the Same Font Size and Colors */
+
+/* Global Styles */
+/* Global Styles */
+body {
+  font-family: "Arial", sans-serif; /* Change the font-family as per your preference */
+  line-height: 1.6;
 }
 
-a{
-    text-decoration: none;
-    font-size: 8px;
-    display: inline-block;
-
-
+/* Link Styles */
+a {
+  text-decoration: none;
+  font-size: 1rem; /* Set the desired font size */
+  color: #007bff; /* Set the desired link color */
+  display: inline-block;
 }
 
-ul li{
-    display: inline-block;
+/* List Item Styles */
+ul li {
+  display: inline-block;
 }
 
-a i{
-    font-size: 30px;
-    padding: 10px;
+/* Icon Styles */
+a i {
+  font-size: 1.5rem; /* Set the desired font size for icons */
+  padding: 10px;
 }
 
+/* Button Styles */
 button.w-small {
-    margin-left: 50%; /* Adjust the margin as needed */
-    margin-top: 0px;
-    padding-top: 0px;
+  margin-left: 50%; /* Adjust the margin as needed */
+  margin-top: 0px;
+  padding-top: 0px;
 }
 
-.w-small{
+.w-small {
+  padding: 1px 5px;
+  font-size: 1rem; /* Set the desired font size for buttons */
+  line-height: 1.5;
+  border-radius: 3px;
+  margin-left: auto;
+  background-color: #3022f8 !important;
+  border: 1px solid #2230f8 !important;
+  color: #fff;
+}
 
-    padding: 1px 5px;
-    font-size: 12px;
-    line-height: 1.5;
-    border-radius: 3px;
-    margin-left: auto;
-    background-color: #3022f8!important;
-    border: 1px solid #2230f8!important;
-    color: #fff;
+p {
+  font-size: 1rem;
+}
 
+.card-text {
+  font-size: 1rem;
+  color: #555; /* Dark gray text color */
 }

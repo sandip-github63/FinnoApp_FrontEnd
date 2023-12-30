@@ -71,3 +71,78 @@ ul li:hover {
   top: 50px; /* Adjust the top position */
   left: 150px; /* Adjust the left position */
 }
+
+.parent {
+  text-align: right;
+}
+
+/* Global Styles */
+body {
+  font-family: "Arial", sans-serif; /* Change the font-family as per your preference */
+  line-height: 1.6;
+}
+
+/* Mat Card Styles */
+.mat-card {
+  margin-bottom: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Mat Card Header Styles */
+.mat-card-header {
+  padding: 10px;
+  background-color: #f8f9fa; /* Light gray background color */
+}
+
+/* Card Title Styles */
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Card Text Styles */
+.card-text {
+  font-size: 1rem;
+  color: #555; /* Dark gray text color */
+}
+
+/* "See More" Link Styles */
+.card-link {
+  cursor: pointer;
+  color: #007bff; /* Blue link color */
+}
+
+/* Card Footer Styles */
+.mat-card-footer {
+  background-color: #f8f9fa; /* Light gray background color */
+  padding: 10px;
+}
+
+/* Drop Down Item Card Styles */
+#myCard {
+  box-shadow: none;
+}
+
+/* Drop Down Item List Styles */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 10px;
+}
+
+/* Icons in Drop Down Item Styles */
+i {
+  margin-right: 5px;
+}
+
+/* Divider Styles */
+mat-divider {
+  margin: 10px 0;
+}
