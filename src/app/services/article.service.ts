@@ -23,4 +23,8 @@ export class ArticleService {
   public getLatestArticles() {
     return this.http.get(`${endPoint}/api/article/get/latest-articles`);
   }
+
+  public getUserArticles(userId: number) {
+    return this.http.get(`${endPoint}/api/article/get/user-articles/${userId}`);
+  }
 }

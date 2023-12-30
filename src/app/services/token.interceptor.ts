@@ -23,7 +23,7 @@ export class TokenInterceptor implements HttpInterceptor {
     console.log(JSON.stringify(request, null, 2));
 
     const token =
-      'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYW5kaXAiLCJpYXQiOjE3MDM3Nzc4OTYsImV4cCI6MTcwMzg2NDI5Nn0.kLwB3y5Py8zusSdt20_kpOhyNKbzNSR1WfcqhmYYFPM';
+      'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYW5kaXAiLCJpYXQiOjE3MDM4OTEzOTUsImV4cCI6MTcwMzk3Nzc5NX0.tNsB_NkFbwzG-IB8_NiYilAU--PHLVjR09r9vA2IiN0';
 
     console.log('Interceptor token:', token);
     console.log('Interceptor called');

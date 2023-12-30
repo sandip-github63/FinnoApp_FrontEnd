@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { ArticleService } from 'src/app/services/article.service';
 
 @Component({
   selector: 'app-view-articles',
@@ -6,6 +7,10 @@ import { Component, HostListener, OnInit } from '@angular/core';
   styleUrls: ['./view-articles.component.css'],
 })
 export class ViewArticlesComponent implements OnInit {
+  articles: any = [];
+
+  userId: number = 1;
+
   content: string =
     'Your long content goes here. This is just a sample text for demonstration.Your long content goes here. This is just a sample text for demonstration.';
   truncatedContent: string = '';
@@ -13,11 +18,23 @@ export class ViewArticlesComponent implements OnInit {
 
   //dropdown item
 
-  dropDownItem: boolean = false;
+  dropDownItem: boolean[] = [];
 
-  constructor() {}
+  constructor(private _article: ArticleService) {}
 
   ngOnInit(): void {
+    //call server
+    this._article.getUserArticles(this.userId).subscribe(
+      (data: any) => {
+        this.articles = data;
+        console.log(this.articles);
+      },
+      (error: any) => {
+        console.log(error);
+        alert('Failed to load User Data');
+      }
+    );
+    this.dropDownItem = new Array(this.articles.length).fill(false);
     this.truncateContent();
   }
 
@@ -35,13 +52,13 @@ export class ViewArticlesComponent implements OnInit {
     this.truncatedContent = this.content;
     this.showSeeMore = false;
   }
-  showDropDownItem(event: MouseEvent) {
+  showDropDownItem(event: MouseEvent, index: number) {
     event.stopPropagation(); // Prevent the click event from propagating to the document
-    this.dropDownItem = !this.dropDownItem;
+    this.dropDownItem[index] = !this.dropDownItem[index];
   }
   // Method to hide the dropdown
   hideDropDownItem() {
-    this.dropDownItem = false;
+    this.dropDownItem.fill(false);
   }
 
   @HostListener('document:click', ['$event'])

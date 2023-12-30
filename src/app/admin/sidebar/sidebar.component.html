@@ -1,6 +1,6 @@
 <!-- src/app/sidebar/sidebar.component.html -->
 
-<div class="text-[20px]" *ngIf="!sideBarShow" (click)="openSidebar()">
+<div #sidebar class="text-[20px]" *ngIf="!sideBarShow" (click)="openSidebar()">
   <i
     class="fas fa-chevron-right fa-2x px-2 py-1 rounded-md bg-gray-900 text-gray-200"
   ></i>
