@@ -18,13 +18,13 @@ import { CompanyComponent } from './company/company.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from './services/token.interceptor';
 import { DisplayArticlesComponent } from './articles/display-articles/display-articles.component';
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 import { LatestComponent } from './articles/latest/latest.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ViewArticleComponent } from './articles/view-article/view-article.component';
-
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -41,7 +41,6 @@ import { ViewArticleComponent } from './articles/view-article/view-article.compo
     DisplayArticlesComponent,
     LatestComponent,
     ViewArticleComponent,
-   
   ],
   imports: [
     BrowserModule,
@@ -49,25 +48,20 @@ import { ViewArticleComponent } from './articles/view-article/view-article.compo
     BrowserAnimationsModule,
     MatSlideToggleModule,
     AdminModule,
+    AuthModule,
     HttpClientModule,
     MatCardModule,
     MatButtonModule,
     MatDividerModule,
-    MatPaginatorModule
-    
-    
-
-
+    MatPaginatorModule,
   ],
   providers: [
-
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true,
     },
-
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

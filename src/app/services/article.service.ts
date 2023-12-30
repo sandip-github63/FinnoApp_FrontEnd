@@ -12,6 +12,13 @@ export class ArticleService {
     return this.http.post(`${endPoint}/api/article/create`, formdata);
   }
 
+  public updateArticle(formdata: FormData, articleId: number | null) {
+    return this.http.put(
+      `${endPoint}/api/article/update/${articleId}`,
+      formdata
+    );
+  }
+
   public getAllArticles() {
     return this.http.get(`${endPoint}/api/article/get/all-articles`);
   }
@@ -26,5 +33,9 @@ export class ArticleService {
 
   public getUserArticles(userId: number) {
     return this.http.get(`${endPoint}/api/article/get/user-articles/${userId}`);
+  }
+
+  public deleteArticle(articleId: any) {
+    return this.http.delete(`${endPoint}/api/article/delete/${articleId}`);
   }
 }

@@ -44,7 +44,9 @@
           <mat-divider></mat-divider>
 
           <mat-card-content>
-            <h2 class="card-title mt-3">{{ article.title }}</h2>
+            <h2 style="font-size: 18px" class="card-title mt-3">
+              {{ article.title }}
+            </h2>
             <p
               class="card-text"
               [innerHTML]="
@@ -95,16 +97,20 @@
                 <mat-card style="width: 20rem" id="myCard">
                   <ul>
                     <div>
-                      <li>
+                      <li (click)="deleteArticle(article.articleId)">
                         <i class="fa fa-trash pt-2 text-danger"></i
-                        ><a href="#" class="pb-1">Delete</a>
+                        ><a class="pb-1">Delete</a>
                       </li>
                       <mat-divider></mat-divider>
                     </div>
-                    <div>
+                    <div
+                      [routerLink]="
+                        '/admin-dashboard/update-article/' + article.articleId
+                      "
+                    >
                       <li>
                         <i class="fa fa-pencil mt-2 text-primary"></i
-                        ><a href="#" class="pb-1">Update</a>
+                        ><a class="pb-1">Update</a>
                       </li>
                       <mat-divider></mat-divider>
                     </div>

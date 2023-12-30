@@ -1,5 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ArticleService } from 'src/app/services/article.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-view-articles',
@@ -22,7 +24,10 @@ export class ViewArticlesComponent implements OnInit {
 
   dropDownItem: boolean[] = [];
 
-  constructor(private _article: ArticleService) {}
+  constructor(
+    private _article: ArticleService,
+    private _snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {
     //call server
@@ -92,5 +97,54 @@ export class ViewArticlesComponent implements OnInit {
     if (!isDropDownClicked) {
       this.hideDropDownItem();
     }
+  }
+
+  public deleteArticle(articleId: any) {
+    Swal.fire({
+      title: 'Are you sure want to delete ?',
+      showDenyButton: true,
+      confirmButtonText: 'Yes',
+      denyButtonText: 'No',
+      customClass: {
+        actions: 'my-actions',
+        cancelButton: 'order-1 right-gap',
+        confirmButton: 'order-2',
+        denyButton: 'order-3',
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this._article.deleteArticle(articleId).subscribe(
+          (data: any) => {
+            this.articles.data = this.articles.data.filter(
+              (article: any) => article.articleId != articleId
+            );
+
+            this.showSuccessMessage('Article deleted successfully');
+
+            this.dropDownItem.fill(false);
+          },
+          (error: any) => {
+            this.showErrorMessage('Something went wrong');
+            console.log(error);
+          }
+        );
+      } else if (result.isDenied) {
+        //this.showErrorMessage('Article is Not Deleted..');
+      }
+    });
+  }
+
+  private showSuccessMessage(message: string): void {
+    this._snackBar.open(message, 'Close', {
+      duration: 5000, // 3 seconds
+      panelClass: ['success-snackbar'], // You can define the styles in your CSS
+    });
+  }
+
+  private showErrorMessage(message: string): void {
+    this._snackBar.open(message, 'Close', {
+      duration: 6000,
+      panelClass: ['error-snackbar'],
+    });
   }
 }

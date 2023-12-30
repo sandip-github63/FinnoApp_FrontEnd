@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from '../home/home.component';
 import { AddArticleComponent } from './add-article/add-article.component';
 import { ViewArticlesComponent } from './view-articles/view-articles.component';
+import { UpdateArticleComponent } from './update-article/update-article.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
       {
         path: 'view-articles',
         component: ViewArticlesComponent,
+      },
+      {
+        path: 'update-article/:articleId',
+        component: UpdateArticleComponent,
       },
     ],
   },
