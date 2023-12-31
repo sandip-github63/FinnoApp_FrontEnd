@@ -6,10 +6,11 @@ import {
   HttpInterceptor,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { LoginService } from './login.service';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-  constructor() {}
+  constructor(private loginService: LoginService) {}
 
   intercept(
     request: HttpRequest<any>,
@@ -22,8 +23,7 @@ export class TokenInterceptor implements HttpInterceptor {
 
     console.log(JSON.stringify(request, null, 2));
 
-    const token =
-      'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYW5kaXAiLCJpYXQiOjE3MDM4OTEzOTUsImV4cCI6MTcwMzk3Nzc5NX0.tNsB_NkFbwzG-IB8_NiYilAU--PHLVjR09r9vA2IiN0';
+    const token = this.loginService.getToken();
 
     console.log('Interceptor token:', token);
     console.log('Interceptor called');

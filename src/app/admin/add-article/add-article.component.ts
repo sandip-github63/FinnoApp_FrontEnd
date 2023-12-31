@@ -2,26 +2,32 @@ import { Component, OnInit } from '@angular/core';
 import { ArticleService } from 'src/app/services/article.service';
 import Swal from 'sweetalert2';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-add-article',
   templateUrl: './add-article.component.html',
-  styleUrls: ['./add-article.component.css']
+  styleUrls: ['./add-article.component.css'],
 })
 export class AddArticleComponent implements OnInit {
-
   selectedFile: File | null = null;
   selectedFileName: string | null = null;
 
   formData = {
     title: '',
     content: '',
-    userId: '102'
+    userId: '',
   };
 
-  constructor(private _article: ArticleService, private _snackBar: MatSnackBar) { }
+  constructor(
+    private _article: ArticleService,
+    private _snackBar: MatSnackBar,
+    private _login: LoginService
+  ) {}
 
   ngOnInit(): void {
+    const user = this._login.getUser();
+    this.formData.userId = user.userWithAuthorities.user.userId;
   }
 
   async onFormSubmit() {
@@ -72,15 +78,15 @@ export class AddArticleComponent implements OnInit {
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
     // Update selectedFileName with the file name
-  if (this.selectedFile) {
-    this.selectedFileName = this.selectedFile.name;
-  } else {
-    this.selectedFileName = null;
-  }
+    if (this.selectedFile) {
+      this.selectedFileName = this.selectedFile.name;
+    } else {
+      this.selectedFileName = null;
+    }
   }
 
   public validationCondition(data: any): boolean {
-    return (data.trim() === '' || data == null) ? false : true;
+    return data.trim() === '' || data == null ? false : true;
   }
 
   openSnackBar(message: any) {
@@ -90,18 +96,17 @@ export class AddArticleComponent implements OnInit {
   }
 
   // Add a method to reset form data
-resetFormData() {
-  this.formData = {
-    title: '',
-    content: '',
-    userId: '102'
-  };
-  this.resetFile();
-}
+  resetFormData() {
+    this.formData = {
+      title: '',
+      content: '',
+      userId: '102',
+    };
+    this.resetFile();
+  }
 
-resetFile() {
-  this.selectedFile = null;
-  this.selectedFileName = null;
-}
-
+  resetFile() {
+    this.selectedFile = null;
+    this.selectedFileName = null;
+  }
 }

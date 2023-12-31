@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ArticleService } from 'src/app/services/article.service';
+import { LoginService } from 'src/app/services/login.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
 export class ViewArticlesComponent implements OnInit {
   articles: any = [];
 
-  userId: number = 102;
+  userId: any;
 
   content: string =
     'Your long content goes here. This is just a sample text for demonstration.Your long content goes here. This is just a sample text for demonstration.';
@@ -26,11 +27,16 @@ export class ViewArticlesComponent implements OnInit {
 
   constructor(
     private _article: ArticleService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private _login: LoginService
   ) {}
 
   ngOnInit(): void {
+    //get current logged in user from localstorge
+    const user = this._login.getUser();
+    this.userId = user.userWithAuthorities.user.userId;
     //call server
+
     this._article.getUserArticles(this.userId).subscribe(
       (data: any) => {
         this.articles = data;
@@ -38,7 +44,7 @@ export class ViewArticlesComponent implements OnInit {
       },
       (error: any) => {
         console.log(error);
-        alert('Failed to load User Data');
+        this.showErrorMessage('No Article Found');
       }
     );
     this.dropDownItem = new Array(this.articles.length).fill(false);

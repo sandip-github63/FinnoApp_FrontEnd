@@ -58,6 +58,13 @@ export class RegisterComponent implements OnInit {
 
     this.userService.addUser(this.user).subscribe(
       (data: any) => {
+        this.user.userName = '';
+        this.user.password = '';
+        this.user.email = '';
+        this.user.phone = '';
+        this.user.firstName = '';
+        this.user.lastName = '';
+
         this.showSuccessMessage('User has been created successfully');
       },
       (error: any) => {
