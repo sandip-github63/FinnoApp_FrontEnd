@@ -5,11 +5,13 @@ import { HomeComponent } from '../home/home.component';
 import { AddArticleComponent } from './add-article/add-article.component';
 import { ViewArticlesComponent } from './view-articles/view-articles.component';
 import { UpdateArticleComponent } from './update-article/update-article.component';
+import { AdminGuard } from '../guards/admin.guard';
 
 const routes: Routes = [
   {
     path: 'admin-dashboard',
     component: DashboardComponent,
+    canActivate: [AdminGuard],
     children: [
       {
         path: 'add-article',

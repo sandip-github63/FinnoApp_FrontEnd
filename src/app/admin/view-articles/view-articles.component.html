@@ -1,4 +1,4 @@
-<div class="mat-card">
+<div class="mat-card main">
   <div class="container">
     <div class="row">
       <div
@@ -9,20 +9,13 @@
           <mat-card-header>
             <div class="container">
               <div class="row">
-                <div class="col">
-                  <figure>
-                    <img
-                      src="../../assets/Image/blankProfile.webp"
-                      class="card-img-top"
-                      alt="Card Image"
-                      style="
-                        height: 30px;
-                        width: 30px;
-                        border: 1px solid black;
-                        border-radius: 50%;
-                      "
-                    />
-                  </figure>
+                <div class="col-sm-2">
+                  <!-- Image part -->
+                  <img
+                    [src]="serverImage(article.imageNames[0])"
+                    class="img-fluid rounded"
+                    style="width: 100px; height: 100px"
+                  />
                 </div>
 
                 <div class="col">
@@ -44,11 +37,16 @@
           <mat-divider></mat-divider>
 
           <mat-card-content>
-            <h2 style="font-size: 18px" class="card-title mt-3">
-              {{ article.title }}
-            </h2>
+            <h2
+              style="font-size: 18px"
+              class="card-title mt-3"
+              style="font: 20px open sans, sans-serif; color: #333333"
+              [innerHTML]="article.title"
+            ></h2>
+
+            <mat-divider></mat-divider>
             <p
-              class="card-text"
+              class="card-text pt-3"
               [innerHTML]="
                 showSeeMore[i] ? article.content : truncatedContent[i]
               "

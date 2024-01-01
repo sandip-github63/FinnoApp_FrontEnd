@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ArticleService } from 'src/app/services/article.service';
+import endPoint from 'src/app/services/helper';
 import { LoginService } from 'src/app/services/login.service';
 import Swal from 'sweetalert2';
 
@@ -13,6 +14,8 @@ export class ViewArticlesComponent implements OnInit {
   articles: any = [];
 
   userId: any;
+
+  imageLocation: String = '/api/serve/images/';
 
   content: string =
     'Your long content goes here. This is just a sample text for demonstration.Your long content goes here. This is just a sample text for demonstration.';
@@ -152,5 +155,9 @@ export class ViewArticlesComponent implements OnInit {
       duration: 6000,
       panelClass: ['error-snackbar'],
     });
+  }
+
+  public serverImage(imageName: string): string {
+    return `${endPoint}${this.imageLocation}${imageName}`;
   }
 }

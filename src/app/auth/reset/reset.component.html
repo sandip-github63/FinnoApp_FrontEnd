@@ -1,0 +1,101 @@
+<!-- password-reset.component.html -->
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h3>Password Reset</h3>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="resetForm">
+        <!--Email field-->
+        <mat-form-field class="full-width" *ngIf="isShowEmail">
+          <input
+            matInput
+            placeholder="Email"
+            formControlName="email"
+            required
+          />
+          <mat-error *ngIf="resetForm.get('email')?.hasError('required')"
+            >Email is required</mat-error
+          >
+          <mat-error *ngIf="resetForm.get('email')?.hasError('email')"
+            >Invalid email format</mat-error
+          >
+        </mat-form-field>
+
+        <!--OTP field-->
+        <mat-form-field
+          class="full-width"
+          *ngIf="!isShowEmail && !isShowPassword"
+        >
+          <input
+            matInput
+            placeholder="Enter your OTP"
+            formControlName="otp"
+            required
+          />
+        </mat-form-field>
+
+        <!--NewPassword field-->
+        <mat-form-field class="full-width" *ngIf="isShowPassword">
+          <input
+            matInput
+            placeholder="New Password"
+            formControlName="newpassword"
+            [type]="passwordFieldType"
+            required
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="togglePasswordVisibility()"
+          >
+            <mat-icon>{{
+              passwordFieldType === "password" ? "visibility_off" : "visibility"
+            }}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <!--ConfirmPassword field-->
+        <mat-form-field class="full-width" *ngIf="isShowPassword">
+          <input
+            matInput
+            placeholder="Confirm Password"
+            formControlName="confirmPassword"
+            type="password"
+            required
+          />
+        </mat-form-field>
+
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          (click)="onSubmitEmail()"
+          *ngIf="isShowEmail"
+        >
+          Send for OTP
+        </button>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          (click)="onSubmitOTP()"
+          *ngIf="!isShowEmail && !isShowPassword"
+        >
+          validate OTP
+        </button>
+        <!-- <button mat-raised-button color="primary" type="submit" (click)="showEmail()" *ngIf="!isShowEmail && !isShowPassword" class="back" [routerLink]="'/reset'">Back</button> -->
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          (click)="changePassword()"
+          *ngIf="isShowPassword"
+          class="back"
+        >
+          change
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

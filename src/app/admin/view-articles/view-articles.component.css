@@ -62,14 +62,44 @@ ul li:hover {
   background-color: rgb(229 229 229);
 }
 
-/* Add this style to your component's CSS file or style section */
-
 .dropdown-item {
   position: absolute;
   z-index: 1000; /* Adjust the z-index as needed to ensure it appears above other elements */
   /* Additional styling as needed */
-  top: 50px; /* Adjust the top position */
-  left: 150px; /* Adjust the left position */
+}
+/* Default styles for large screens */
+
+.dropdown-item {
+  position: absolute;
+  z-index: 1000;
+  top: 100px; /* Adjust the top position */
+  left: 600px; /* Adjust the left position */
+}
+
+/* Laptops */
+@media screen and (min-width: 992px) and (max-width: 1280px) {
+  .dropdown-item {
+    top: 100px; /* Adjust the top position */
+    left: 500px; /* Adjust the left position */
+  }
+}
+
+/* Tablets */
+@media screen and (max-width: 991px) and (min-width: 769px) {
+  .dropdown-item {
+    top: 100px; /* Adjust the top position */
+    left: 280px; /* Adjust the left position */
+  }
+}
+
+/* Phones */
+@media screen and (max-width: 768px) {
+  .dropdown-item {
+    top: 11rem; /* Adjust the top position for larger screens */
+    /* Adjust the left position for larger screens */
+    left: 70%; /* Center the dropdown item horizontally */
+    transform: translateX(-50%); /* Center the dropdown item horizontally */
+  }
 }
 
 .parent {
