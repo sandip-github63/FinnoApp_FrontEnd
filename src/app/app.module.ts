@@ -25,6 +25,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ViewArticleComponent } from './articles/view-article/view-article.component';
 import { AuthModule } from './auth/auth.module';
+import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,8 @@ import { AuthModule } from './auth/auth.module';
     MatButtonModule,
     MatDividerModule,
     MatPaginatorModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({ showForeground: true }),
   ],
   providers: [
     {
