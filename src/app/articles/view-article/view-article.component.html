@@ -87,6 +87,21 @@
                 <div>
                   <p class="card-text" [innerHTML]="article.data.content"></p>
                 </div>
+                <div *ngIf="article.data.url">
+                  <a
+                    ><span style="margin-right: 2px; color: red"
+                      >Refer From</span
+                    >
+                    <b class="mx-2">{{ article.data.urlSource }}</b></a
+                  >
+                  <a
+                    href="{{ article.data.url }}"
+                    class="mx-1"
+                    style="text-decoration: underline"
+                    target="_blank"
+                    >Visit</a
+                  >
+                </div>
               </div>
             </div>
           </mat-card-content>

@@ -1,8 +1,42 @@
-<div class="container-fluid mt-2">
+<div class="container-fluid">
   <form class="example-form" (ngSubmit)="onFormSubmit()">
     <mat-card>
       <mat-card-content>
         <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <!--Url field-->
+              <div class="col-6">
+                <mat-form-field class="w100" appearance="fill">
+                  <mat-label>URL</mat-label>
+                  <input
+                    type="text"
+                    name="url"
+                    [(ngModel)]="formData.url"
+                    matInput
+                    required
+                    #titleInput="ngModel"
+                  />
+                </mat-form-field>
+              </div>
+
+              <!--urlSource Field-->
+              <div class="col-6">
+                <mat-form-field class="w100" appearance="fill">
+                  <mat-label>URL Source</mat-label>
+                  <input
+                    type="text"
+                    name="urlSource"
+                    [(ngModel)]="formData.urlSource"
+                    matInput
+                    required
+                    #titleInput="ngModel"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+
           <div class="col-md-12">
             <div class="row">
               <div class="col-md-12">

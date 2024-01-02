@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { ArticleService } from 'src/app/services/article.service';
+import { LoginService } from 'src/app/services/login.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -16,25 +17,33 @@ export class UpdateArticleComponent implements OnInit {
 
   article: any;
 
+  userId: any;
+
   formData = {
     title: '',
     content: '',
     userId: '',
+    url: '',
+    urlSource: '',
   };
 
   constructor(
     private _article: ArticleService,
     private _snackBar: MatSnackBar,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private _login: LoginService
   ) {}
 
   ngOnInit(): void {
+    this.userId = this._login.getUser().userWithAuthorities.user.userId;
     this.articleId = this._route.snapshot.params.articleId;
     this._article.getArticle(this.articleId).subscribe(
       (data: any) => {
         this.formData.title = data.data.title;
         this.formData.content = data.data.content;
         this.formData.userId = data.data.userId;
+        this.formData.url = data.data.url;
+        this.formData.urlSource = data.data.urlSource;
         console.log(this.formData);
       },
       (error: any) => {}
@@ -63,6 +72,8 @@ export class UpdateArticleComponent implements OnInit {
       const formData = new FormData();
       formData.append('title', this.formData.title);
       formData.append('content', this.formData.content);
+      formData.append('url', this.formData.url);
+      formData.append('urlSource', this.formData.urlSource);
 
       // Append the image file if it's selected
       if (this.selectedFile) {
@@ -113,7 +124,9 @@ export class UpdateArticleComponent implements OnInit {
     this.formData = {
       title: '',
       content: '',
-      userId: '102',
+      userId: this.userId,
+      url: '',
+      urlSource: '',
     };
     this.resetFile();
   }

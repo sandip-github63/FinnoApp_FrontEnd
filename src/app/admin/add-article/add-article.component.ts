@@ -17,7 +17,11 @@ export class AddArticleComponent implements OnInit {
     title: '',
     content: '',
     userId: '',
+    url: '',
+    urlSource: '',
   };
+
+  userId: any;
 
   constructor(
     private _article: ArticleService,
@@ -28,6 +32,7 @@ export class AddArticleComponent implements OnInit {
   ngOnInit(): void {
     const user = this._login.getUser();
     this.formData.userId = user.userWithAuthorities.user.userId;
+    this.userId = user.userWithAuthorities.user.userId;
   }
 
   async onFormSubmit() {
@@ -52,6 +57,8 @@ export class AddArticleComponent implements OnInit {
       const formData = new FormData();
       formData.append('title', this.formData.title);
       formData.append('content', this.formData.content);
+      formData.append('url', this.formData.url);
+      formData.append('urlSource', this.formData.urlSource);
 
       // Append the image file if it's selected
       if (this.selectedFile) {
@@ -100,7 +107,9 @@ export class AddArticleComponent implements OnInit {
     this.formData = {
       title: '',
       content: '',
-      userId: '102',
+      userId: this.userId,
+      url: '',
+      urlSource: '',
     };
     this.resetFile();
   }
